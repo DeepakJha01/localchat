@@ -143,7 +143,7 @@ def start_server():
 ################################################################################################
 #-----------------------------------CLIENT FUNCTIONS-------------------------------------------
 
-def recieve_loop(client):
+def receive_loop(client):
     while True:
         try:
             receive_message(client)
@@ -180,12 +180,44 @@ def start_client(server_ip):
 
     welcome_client_message(USERNAME)
 
-    recieve_thread = threading.Thread(target=recieve_loop, args=(client,))
+    recieve_thread = threading.Thread(target=receive_loop, args=(client,))
     recieve_thread.start()
 
     send_thread = threading.Thread(target=send_loop, args=(client,USERNAME))
     send_thread.start()
 
+
+#------------------HELP--------------------------------------------------------------------------
+def help():
+    print('\nlocalchat :: python library for quickly writing server and client side programs for a Chat Group on LAN')
+    print('Follow the below instructions to use this library')
+
+    print("""
+    Localchat library is pre-initialized with the following values of the GLOBAL variables
+    PORT (port number) = 9999,                    FORMAT (encoding format) = 'utf-8'
+    DISCONNECT_MSG (client disconnects on typing this message) = '!CONNECT'     
+    HEADER (buffer size to send the size of the message) = 64
+    
+    1. initialize(port,format,header,disconnect_msg)    -   to change any of the pre-initialized global variables
+                                                            (should be same for server and client)
+                                                            
+    2. start_server()   -   binds the server with its (IP, PORT) and gets ready to accept multiple clients requests,
+                            receive messages and broadcast the messages to all the client available
+    
+    3. start_client(server_ip)   -   connects the client with the server ipv4 address provided and gets ready to send
+                                     and receive messages concurrently
+    
+    4. send_message(client, message)   -    server can send the message to the client OR
+                                            client can send message to the connected server       
+    
+    5. receive_msg(client)  -   server can receive message from the client OR
+                                client can receive message from the connected server
+    
+    6. broadcast(message)   -   server broadcasts the message to all the available clients(ALL_CLIENTS)
+    
+    Will be adding new features soon ...
+    """)
+#-------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -195,6 +227,6 @@ def start_client(server_ip):
 
 
 ## CLIENT CODE
-# initialize(port=9999,header=64)
-# server_ip = '192.168.10.39'
+# initialize()
+# server_ip = '111.111.11.11'
 # start_client(server_ip)
