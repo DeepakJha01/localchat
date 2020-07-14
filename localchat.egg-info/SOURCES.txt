@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+localchat/__init__.py
+localchat.egg-info/PKG-INFO
+localchat.egg-info/SOURCES.txt
+localchat.egg-info/dependency_links.txt
+localchat.egg-info/top_level.txt
