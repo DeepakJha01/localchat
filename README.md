@@ -84,7 +84,7 @@ The following arguments of the server and the client SHOULD BE SAME during ```.i
 You are welcome to contribute via pull requests on [GitHub](https://github.com/DeepakJha01/localchat)
 
 ## Version
-Stable Version - 1.0.1
+Stable Version - 1.1.0
 
 ## License
 [MIT](https://github.com/DeepakJha01/localchat/blob/master/LICENSE)
